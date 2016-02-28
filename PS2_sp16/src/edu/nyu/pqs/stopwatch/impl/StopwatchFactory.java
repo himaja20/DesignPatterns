@@ -1,8 +1,8 @@
 package edu.nyu.pqs.stopwatch.impl;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import edu.nyu.pqs.stopwatch.api.IStopwatch;
 import edu.nyu.pqs.stopwatch.stopwatchImpl.StopwatchOperations;
@@ -15,7 +15,7 @@ import edu.nyu.pqs.stopwatch.stopwatchImpl.StopwatchOperations;
  */
 public class StopwatchFactory {
 
-	private static List<IStopwatch> obList = new ArrayList<IStopwatch>(); 
+	private static List<IStopwatch> obList = new CopyOnWriteArrayList<IStopwatch>(); 
 	
 	/**
 	 * Creates and returns a new IStopwatch object
@@ -29,15 +29,18 @@ public class StopwatchFactory {
 			throw new IllegalArgumentException("object null. Try again");
 		}
 		IStopwatch newOb;
-		Iterator<IStopwatch> iterator = obList.iterator();
-		while(iterator.hasNext()){
-			IStopwatch ob = iterator.next();
-			if (ob.getId() == id){
-				throw new IllegalArgumentException("invalid stopwatch object. Try again with a different ID");
+		
+		synchronized(StopwatchFactory.class){
+			Iterator<IStopwatch> iterator = obList.iterator();
+			while(iterator.hasNext()){
+				IStopwatch ob = iterator.next();
+				if ((ob.getId()) == id){
+					throw new IllegalArgumentException("invalid stopwatch object. Try again with a different ID");
+				}
 			}
-		}
-		newOb = StopwatchOperations.newInstance(id);
+			newOb = StopwatchOperations.newInstance(id);
 		obList.add(newOb);
+		}
 		return newOb;
 	}
 
@@ -47,6 +50,10 @@ public class StopwatchFactory {
 	 * list if no IStopwatches have been created.
 	 */
 	public static List<IStopwatch> getStopwatches() {
-		return obList;
+		List<IStopwatch> obListCopy = new CopyOnWriteArrayList<IStopwatch>();
+		for (IStopwatch ob : obList){
+			obListCopy.add(ob);
+		}
+		return obListCopy;
 	}
 }

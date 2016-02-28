@@ -1,7 +1,7 @@
 package edu.nyu.pqs.stopwatch.stopwatchImpl;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import edu.nyu.pqs.stopwatch.api.IStopwatch;
 
@@ -10,13 +10,13 @@ public class StopwatchOperations implements IStopwatch{
 	private enum State {RUNNING,PAUSED,RESET};
 	private long start;
 	private long pausedTime;
-	private String id;
+	private final String id;
 	private List<Long> lapTimes;
 	private long elapsedTime;
 	private long stopToStartTime;
 	State currentState;
 	
-	private Object lock = new Object();
+	private final Object lock = new Object();
 	
 	private StopwatchOperations(String id){
 		this.id = id;
@@ -24,7 +24,7 @@ public class StopwatchOperations implements IStopwatch{
 		pausedTime = 0;
 		elapsedTime = 0;
 		stopToStartTime = 0;
-		lapTimes = new ArrayList<Long>();
+		lapTimes = new CopyOnWriteArrayList<Long>();
 		currentState = State.RESET;
 	}
 	
@@ -40,43 +40,43 @@ public class StopwatchOperations implements IStopwatch{
 
 	@Override
 	public synchronized void start() {
-		//synchronized(lock){
-		if (currentState.equals(State.RESET)){
-			start = System.currentTimeMillis();
-			System.out.println("start --------- " + start);
+		long time = System.currentTimeMillis();
+		synchronized(lock){
+			if (currentState.equals(State.RUNNING)){
+				throw new IllegalStateException("Stopwatch is already running");
+			}
+			else if (currentState.equals(State.RESET)){
+				start = time;
+			}
+			else if (currentState.equals(State.PAUSED)){
+				stopToStartTime += time - pausedTime;
+			}
+		currentState = State.RUNNING;
 		}
-		else if(currentState.equals(State.PAUSED)){
-			stopToStartTime += System.currentTimeMillis() - pausedTime;
-		}
-		else {
-			throw new IllegalStateException("Stopwatch is already running");
-		}
-		//}
-		
-			currentState = State.RUNNING;
-		
 	}
 
 	@Override
 	public void lap() {
-		if(!currentState.equals(State.RUNNING)){
-			throw new IllegalStateException("Stop watch not running currently");
-		}
-		//synchronized(lock){
-			elapsedTime = System.currentTimeMillis()-start;
+		long time = System.currentTimeMillis();
+		synchronized(lock){
+			if(!currentState.equals(State.RUNNING)){
+				throw new IllegalStateException("Stop watch not running currently");
+			}
+			elapsedTime = time - start;
 			lapTimes.add(elapsedTime - stopToStartTime);
-			start = System.currentTimeMillis();
+			start = time;
 			stopToStartTime = 0;
-		//}
+		}
 	}
 		
 	@Override
 	public void stop() {
-		if (!currentState.equals(State.RUNNING)){
-			throw new IllegalStateException("Stop watch is not running currently");
-		}
+		long time = System.currentTimeMillis();
 		synchronized(lock){
-			pausedTime = System.currentTimeMillis();
+			if (!currentState.equals(State.RUNNING)){
+				throw new IllegalStateException("Stop watch is not running currently");
+			}
+			pausedTime = time;
 			currentState = State.PAUSED;
 		}
 	}
@@ -89,14 +89,15 @@ public class StopwatchOperations implements IStopwatch{
 		stopToStartTime = 0;
 		lapTimes.clear();
 		currentState = State.RESET;
-		System.out.println("RESET");
 	}
 
 	@Override
 	public List<Long> getLapTimes() {
-		List<Long> lapTimesCopy;
+		List<Long> lapTimesCopy = new CopyOnWriteArrayList<Long>();
 		synchronized(lock){
-		lapTimesCopy = lapTimes;
+			for (long i : lapTimes){
+				lapTimesCopy.add(i);
+			}
 		}
 		return lapTimesCopy;
 	}

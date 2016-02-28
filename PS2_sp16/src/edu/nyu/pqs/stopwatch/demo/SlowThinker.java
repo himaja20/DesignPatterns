@@ -38,68 +38,68 @@ public class SlowThinker {
 		Runnable runnable = new Runnable() {
 			public void run() {
 				IStopwatch stopwatch = StopwatchFactory.getStopwatch(
-				    "ID " );//+ Thread.currentThread().getId());
-			  stopwatch.start();
-				try {
-					Thread.sleep(5000);
-				} catch (InterruptedException ie) { /* safely ignore this */ }
-
+				    "ID " + Thread.currentThread().getId());
 			  
-			  
-			  stopwatch.lap();
-			  
-			  try {
-					Thread.sleep(2000);
-				} catch (InterruptedException ie) { /* safely ignore this */ }
-
-			  stopwatch.stop();
-			  
-			  try {
-					Thread.sleep(4000);
-				} catch (InterruptedException ie) { /* safely ignore this */ }
-			  
-			  stopwatch.start();
-			  
-			  try {
-					Thread.sleep(4000);
-				} catch (InterruptedException ie) { /* safely ignore this */ }
-			  
-			  stopwatch.lap();
-			  
-			  try {
-					Thread.sleep(3000);
-				} catch (InterruptedException ie) { /* safely ignore this */ }
-			  
-			  stopwatch.stop();
-			  
-			  try {
-					Thread.sleep(3000);
-				} catch (InterruptedException ie) { /* safely ignore this */ }
-			  
-			  stopwatch.start();
-			  
-			  try {
-					Thread.sleep(2000);
-				} catch (InterruptedException ie) { /* safely ignore this */ }
-			  
-			  stopwatch.lap();
-			  
-			  try {
-					Thread.sleep(2000);
-				} catch (InterruptedException ie) { /* safely ignore this */ }
-			  
-
-			  
+//				try {
+//					Thread.sleep(5000);
+//				} catch (InterruptedException ie) { /* safely ignore this */ }
+//
+//			  
+//			  
+//			  stopwatch.lap();
+//			  
+//			  try {
+//					Thread.sleep(2000);
+//				} catch (InterruptedException ie) { /* safely ignore this */ }
+//
+//			  stopwatch.stop();
+//			  
+//			  try {
+//					Thread.sleep(4000);
+//				} catch (InterruptedException ie) { /* safely ignore this */ }
+//			  
+//			  stopwatch.start();
+//			  
+//			  try {
+//					Thread.sleep(4000);
+//				} catch (InterruptedException ie) { /* safely ignore this */ }
+//			  
+//			  stopwatch.lap();
+//			  
+//			  try {
+//					Thread.sleep(3000);
+//				} catch (InterruptedException ie) { /* safely ignore this */ }
+//			  
+//			  stopwatch.stop();
+//			  
+//			  try {
+//					Thread.sleep(3000);
+//				} catch (InterruptedException ie) { /* safely ignore this */ }
+//			  
+//			  stopwatch.start();
+//			  
+//			  try {
+//					Thread.sleep(2000);
+//				} catch (InterruptedException ie) { /* safely ignore this */ }
+//			  
+//			  stopwatch.lap();
+//			  
+//			  try {
+//					Thread.sleep(2000);
+//				} catch (InterruptedException ie) { /* safely ignore this */ }
+//			  
+//
+//			  
 			  
 			
-//				stopwatch.start();
-//				for (int i = 0; i < 10; i++) {
-//					try {
-//						Thread.sleep(10);
-//					} catch (InterruptedException ie) { /* safely ignore this */ }
-//					stopwatch.lap();
-//				}
-//				stopwatch.stop();
+				stopwatch.start();
+				for (int i = 0; i < 10; i++) {
+					try {
+						Thread.sleep(10);
+					} catch (InterruptedException ie) { /* safely ignore this */ }
+					stopwatch.lap();
+				}
+				stopwatch.stop();
 				List<Long> times = stopwatch.getLapTimes();
 				logger.info(times.toString());
 				
