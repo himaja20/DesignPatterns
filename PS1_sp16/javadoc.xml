@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="javadoc">
+    <target name="javadoc">
+        <javadoc access="public" author="true" classpath="C:\Users\himaja\Downloads\commons-lang3-3.4-bin\commons-lang3-3.4\commons-lang3-3.4.jar;C:\Users\himaja\Downloads\opencsv-3.7.jar" destdir="doc" doctitle="PQS HW AddressBook API" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" source="1.7" sourcefiles="src/edu/nyu/hr970/pqshw1/Address.java,src/edu/nyu/hr970/pqshw1/AddressBook.java,src/edu/nyu/hr970/pqshw1/Email.java,src/edu/nyu/hr970/pqshw1/Name.java,src/edu/nyu/hr970/pqshw1/Contact.java,src/edu/nyu/hr970/pqshw1/Phone.java" sourcepath="src" splitindex="true" use="true" version="true"/>
+    </target>
+</project>
