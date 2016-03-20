@@ -1,11 +1,17 @@
-package edu.nyu.pqs.stopwatch.stopwatchImpl;
+package edu.nyu.pqs.stopwatch.impl;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import edu.nyu.pqs.stopwatch.api.IStopwatch;
 
-public class StopwatchOperations implements IStopwatch{
+/**
+ * Stopwatch class implements the IStopwatch Interface.
+ * This has the functionality implemented for a stop watch
+ * @author himaja
+ *
+ */
+public class Stopwatch implements IStopwatch{
 
 	private enum State {RUNNING,PAUSED,RESET};
 	private long start;
@@ -15,10 +21,13 @@ public class StopwatchOperations implements IStopwatch{
 	private long elapsedTime;
 	private long stopToStartTime;
 	State currentState;
-	
+
+	private static final String ERR_NOT_RUNNING = "Stop watch not running currently";
+	private static final String ERR_ALREADY_RUNNING = "Stop watch already running";
+
 	private final Object lock = new Object();
-	
-	private StopwatchOperations(String id){
+
+	Stopwatch(String id){
 		this.id = id;
 		start = 0;
 		pausedTime = 0;
@@ -27,31 +36,26 @@ public class StopwatchOperations implements IStopwatch{
 		lapTimes = new CopyOnWriteArrayList<Long>();
 		currentState = State.RESET;
 	}
-	
-	public static IStopwatch newInstance(String id){
-		return new StopwatchOperations(id);
-	}
 
 	@Override
 	public String getId() {
-		String idCopy = id;
-		return idCopy;
+		return id;
 	}
 
 	@Override
-	public synchronized void start() {
+	public void start() {
 		long time = System.currentTimeMillis();
 		synchronized(lock){
-			if (currentState.equals(State.RUNNING)){
-				throw new IllegalStateException("Stopwatch is already running");
+			if (isValidState(State.RUNNING)){
+				throw new IllegalStateException(ERR_ALREADY_RUNNING);
 			}
-			else if (currentState.equals(State.RESET)){
+			else if (isValidState(State.RESET)){
 				start = time;
 			}
-			else if (currentState.equals(State.PAUSED)){
+			else if (isValidState(State.PAUSED)){
 				stopToStartTime += time - pausedTime;
 			}
-		currentState = State.RUNNING;
+			currentState = State.RUNNING;
 		}
 	}
 
@@ -59,8 +63,8 @@ public class StopwatchOperations implements IStopwatch{
 	public void lap() {
 		long time = System.currentTimeMillis();
 		synchronized(lock){
-			if(!currentState.equals(State.RUNNING)){
-				throw new IllegalStateException("Stop watch not running currently");
+			if(!isValidState(State.RUNNING)){
+				throw new IllegalStateException(ERR_NOT_RUNNING);
 			}
 			elapsedTime = time - start;
 			lapTimes.add(elapsedTime - stopToStartTime);
@@ -68,13 +72,13 @@ public class StopwatchOperations implements IStopwatch{
 			stopToStartTime = 0;
 		}
 	}
-		
+
 	@Override
 	public void stop() {
 		long time = System.currentTimeMillis();
 		synchronized(lock){
-			if (!currentState.equals(State.RUNNING)){
-				throw new IllegalStateException("Stop watch is not running currently");
+			if (!isValidState(State.RUNNING)){
+				throw new IllegalStateException(ERR_NOT_RUNNING);
 			}
 			pausedTime = time;
 			currentState = State.PAUSED;
@@ -82,13 +86,15 @@ public class StopwatchOperations implements IStopwatch{
 	}
 
 	@Override
-	public synchronized void reset() {
-		start = 0;
-		pausedTime = 0;
-		elapsedTime = 0;
-		stopToStartTime = 0;
-		lapTimes.clear();
-		currentState = State.RESET;
+	public void reset() {
+		synchronized(lock){
+			start = 0;
+			pausedTime = 0;
+			elapsedTime = 0;
+			stopToStartTime = 0;
+			lapTimes.clear();
+			currentState = State.RESET;
+		}
 	}
 
 	@Override
@@ -101,7 +107,19 @@ public class StopwatchOperations implements IStopwatch{
 		}
 		return lapTimesCopy;
 	}
+	/**
+	 * Checks the current state of the stopwatch. Can be used to check the state before performing 
+	 * any operation on the stop watch. 
+	 * @param reqState - a state of enum type State
+	 * @return true if the current state of the stop watch matches with the state we are checking for.
+	 */
+	private boolean isValidState(State reqState){
+		if (currentState.equals(reqState)){
+			return true;
+		}
+		return false;
 
+	}
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */
@@ -124,7 +142,7 @@ public class StopwatchOperations implements IStopwatch{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		StopwatchOperations other = (StopwatchOperations) obj;
+		Stopwatch other = (Stopwatch) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;

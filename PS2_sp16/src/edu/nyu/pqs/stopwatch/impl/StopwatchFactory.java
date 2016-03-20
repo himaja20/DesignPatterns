@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import edu.nyu.pqs.stopwatch.api.IStopwatch;
-import edu.nyu.pqs.stopwatch.stopwatchImpl.StopwatchOperations;
 
 /**
  * The StopwatchFactory is a thread-safe factory class for IStopwatch objects.
@@ -16,20 +15,20 @@ import edu.nyu.pqs.stopwatch.stopwatchImpl.StopwatchOperations;
 public class StopwatchFactory {
 
 	private static List<IStopwatch> obList = new CopyOnWriteArrayList<IStopwatch>(); 
-	
+
 	/**
 	 * Creates and returns a new IStopwatch object
 	 * @param id The identifier of the new object
 	 * @return The new IStopwatch object
 	 * @throws IllegalArgumentException if <code>id</code> is empty, null, or already
-   *     taken.
+	 *     taken.
 	 */
 	public static IStopwatch getStopwatch(String id) {
 		if (id == null){
 			throw new IllegalArgumentException("object null. Try again");
 		}
 		IStopwatch newOb;
-		
+
 		synchronized(StopwatchFactory.class){
 			Iterator<IStopwatch> iterator = obList.iterator();
 			while(iterator.hasNext()){
@@ -38,8 +37,8 @@ public class StopwatchFactory {
 					throw new IllegalArgumentException("invalid stopwatch object. Try again with a different ID");
 				}
 			}
-			newOb = StopwatchOperations.newInstance(id);
-		obList.add(newOb);
+			newOb = new Stopwatch(id);
+			obList.add(newOb);
 		}
 		return newOb;
 	}
@@ -51,8 +50,10 @@ public class StopwatchFactory {
 	 */
 	public static List<IStopwatch> getStopwatches() {
 		List<IStopwatch> obListCopy = new CopyOnWriteArrayList<IStopwatch>();
-		for (IStopwatch ob : obList){
-			obListCopy.add(ob);
+		synchronized(StopwatchFactory.class){
+			for (IStopwatch ob : obList){
+				obListCopy.add(ob);
+			}
 		}
 		return obListCopy;
 	}

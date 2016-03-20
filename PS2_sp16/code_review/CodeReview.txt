@@ -1,16 +1,24 @@
 Please enter your code review in this file as plain text
 and make sure to include it when you commit your project.
+Code Review Points
 
+1. Cases for Null Pointer Exception are not handled with care
+Ex: a. person.getPersonAddress() != null && person.getPersonAddress().equals(property) might throw a NPE on the second expression
+	b. Deletion of a contact if a null object is passed as a parameter, is not handled.
+	c. Addition of a contact if a null object is passed as a parameter, is not handled.
+	d. file.write(getJSONArray().toJSONString()); may throw a null pointer exception on saving an empty address book.
+2. Extensive use of Standard out. There is no need for functions like "printContacts()" which print contacts to stdout. That is not the requirement of an API
+3. No equals and hashcode implementations in Address book class.
+4. Save and load address book from file functions take a string as a parameter which might not be resolved into a file object.
+5. Exceptions are printed to stacktrace, which are not expected to be seen by the end user.
+6. No validations for Phone and email. For example: A Phone number should only contain numbers. 
+7. Search functionality will fail for a partial string search. One has to enter the complete name, address or the details to search for a specific person.
+8. Documentation for a getter and setter is not required as those functions are self-explanatory.
+9. Having all the contact fields as strings will make it difficult to extend the functionality of the class. 
+Ex: If name has to have multiple fields like first name, last name, nick name, prefix etc. it will take a lot of effort in maintaining the code for each change.
+10. Code could have been indented properly.
+11. JavaDocs did not include description about return Values
+12. JavaDocs did not include description about what the function performs
 
-1. Java Docs did not include description about return Values
-2. Java Docs did not include description about what the function performs
-3. Cases for Null Pointer Exception are not handled with care
-Ex:  person.getPersonAddress() != null && person.getPersonAddress().equals(property) might throw a NPE on the second expression
-	 deletion of a contact if a null object is a passed as a parameter is not handled
-4. Extensive use of Standard out. There is no need for functions like "printContacts()" which print contacts to stdout. That is not the requirement of an API
-5. No equals and hashcode implementations in Address book class.
-6. Code could have been indented properly.
-7. Save and load address book from file functions take a string as a parameter which might not be resolved into a file object.
-8. Exceptions are printed to stacktrace, which are not expected to be seen by the end user.
-9. No validations for Phone and email. For example: A Phone number should only contain numbers. 
-10.
+13. Usage of Builder and Pattern pattern is good. 
+14. Usage of JSON for serialization is also a good idea.
