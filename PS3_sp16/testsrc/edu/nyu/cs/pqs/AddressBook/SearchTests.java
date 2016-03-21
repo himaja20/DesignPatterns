@@ -3,10 +3,12 @@ package edu.nyu.cs.pqs.AddressBook;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.io.FileUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -31,6 +33,9 @@ public class SearchTests {
 	private AddressBookEntry same2;
 	private AddressBookEntry emptyStr;
 
+	private File fileAb;
+	private File fileEmptyAb;
+	private File fileEmptyStringAb;
 	@Before
 	public void setUp() throws Exception {
 		ab = new AddressBook();
@@ -41,6 +46,10 @@ public class SearchTests {
 		filenameEmptyStringAb = "abEmptyStrings.txt";
 		filenameEmptyAb = "emptyab.txt";
 
+		fileAb = new File(filename);
+		fileEmptyAb = new File(filenameEmptyStringAb);
+		fileEmptyStringAb = new File(filenameEmptyAb);
+		
 		// creating some contacts for the address book
 		ab.addAnEntry("Test1", "104 Romaine", 123456, "test@gmail.com", "testnote");
 		ab.addAnEntry("Test4", "107 Romaine", 1234569, "test3@gmail.com", "testnote3");
@@ -52,14 +61,26 @@ public class SearchTests {
 		//creating a null entry 
 		ab.addAnEntry(null, null, 0, null, null);
 
-		ab.saveAddressListToFile(filename);
+		//Creating a file to mimic the function of saving these address book contacts to a file
+		String entryStr1 = "Test1,104 Romaine,123456,test@gmail.com,testnote";
+		String entryStr2 = "Test4,107 Romaine,1234569,test3@gmail.com,testnote3";
+		String entryStr3 = "Same,Same,1234,Same,Same";
+		String entryStr4 = "Same,Same,1234,Same,Same";
+		String entryStr5 = "null,null,0,null,null";
+		
+		List<String> entries = new ArrayList<String>();
+		entries.add(entryStr1);
+		entries.add(entryStr2);
+		entries.add(entryStr3);
+		entries.add(entryStr4);
+		entries.add(entryStr5);
+		
+		FileUtils.writeLines(fileAb, entries);
 
 		//creating an AddressBook with empty Strings
 		emptyStringAb.addAnEntry("", "", 0, "", "");
-		emptyStringAb.saveAddressListToFile(filenameEmptyStringAb);
-
-		//an Empty address book
-		emptyAb.saveAddressListToFile(filenameEmptyAb);
+		String emptyString = ",,0,,";
+		FileUtils.writeStringToFile(fileEmptyStringAb, emptyString);
 
 		//Creating AddressBook Entries for validation
 		entry1 = new AddressBookEntry();
@@ -95,6 +116,16 @@ public class SearchTests {
 	public void tearDown() throws Exception {
 	}
 
+	private void generateFile(List<String> entries){
+		try{
+			fileAb = new File(filename);
+			FileUtils.writeLines(fileAb, entries);	
+		}
+		catch (IOException e){
+			e.printStackTrace();
+		}
+
+	}
 	@Test(expected = IllegalArgumentException.class)
 	public void searchWithNullEntryAttribute(){
 		ab.searchAddressBook(filename, "Test1", null);
