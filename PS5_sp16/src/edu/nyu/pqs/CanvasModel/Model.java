@@ -1,16 +1,31 @@
 package edu.nyu.pqs.CanvasModel;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Model {
   private List<Listener> listeners = new ArrayList<Listener>();
-  private int curX;
-  private int curY;
+  private Color color;
+  /**
+   * @return the color
+   */
+  public Color getColor() {
+    return color;
+  }
 
-  private Model(){
-    setCurX(-1);
-    setCurY(-1);
+  private int thickness;
+
+  /**
+   * @return the thickness
+   */
+  public int getThickness() {
+    return thickness;
+  }
+
+  public Model(){
+    color = Color.RED;
+    this.thickness = 12;
   }
 
   private static class ModelLazyHolder {
@@ -20,18 +35,14 @@ public class Model {
   public static Model getInstance() {
     return ModelLazyHolder.INSTANCE;
   }
-  
+
   public void somethingDrawn(int x, int y){
-    if(getCurX() == -1){
-      setCurX(x);
-      setCurY(y);
-    }
-    fireEventPaint(x, y, 15, 15);
+    fireEventPaint(x, y);
   }
 
-  public void fireEventPaint(int x, int y, int w, int h){
+  private void fireEventPaint(int x, int y){
     for(Listener listener : listeners){
-      listener.paint(x,y,w,h);
+      listener.paint(x,y,thickness,thickness,color);
     }
   }
 
@@ -43,20 +54,29 @@ public class Model {
     listeners.remove(listener);
   }
 
-  public int getCurX() {
-    return curX;
+  public void ButtonClicked(Color color) {
+    this.color = color;
   }
 
-  private void setCurX(int x) {
-    this.curX = x;
+  public void incThickness() {
+    if (thickness < 20){
+      this.thickness++;
+    }
+    fireShowThicknessEvent();
   }
 
-  public int getCurY() {
-    return curY;
+  private void fireShowThicknessEvent() {
+    for(Listener listener : listeners){
+      listener.showThickness(thickness);
+    }
   }
 
-  private void setCurY(int y) {
-    this.curY = y;
+  public void decThickness() {
+    if (!(thickness <= 0)){
+      this.thickness--;
+    }
+
+    fireShowThicknessEvent();
   }
 
 
