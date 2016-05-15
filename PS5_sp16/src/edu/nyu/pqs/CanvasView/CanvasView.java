@@ -42,9 +42,4 @@ public class CanvasView implements Listener{
   public void paint(int x, int y, int w, int h){
     canvas.getGraphics().fillOval(x, y, w, h);
   }
-
-  @Override
-  public void startCanvas() {
-  }
-
 }

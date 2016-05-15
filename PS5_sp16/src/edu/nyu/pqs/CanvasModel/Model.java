@@ -21,10 +21,6 @@ public class Model {
     return ModelLazyHolder.INSTANCE;
   }
   
-  public void startCanvas(){
-    fireStartCanvas();
-  }
-
   public void somethingDrawn(int x, int y){
     if(getCurX() == -1){
       setCurX(x);
@@ -36,11 +32,6 @@ public class Model {
   public void fireEventPaint(int x, int y, int w, int h){
     for(Listener listener : listeners){
       listener.paint(x,y,w,h);
-    }
-  }
-  public void fireStartCanvas(){
-    for(Listener listener : listeners){
-      listener.startCanvas();
     }
   }
 

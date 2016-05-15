@@ -15,7 +15,6 @@ public class CanvasApp {
     new CanvasView(model);
     new CanvasView(model);
     new CanvasView(model);
-    model.startCanvas();
   }
 
 }
