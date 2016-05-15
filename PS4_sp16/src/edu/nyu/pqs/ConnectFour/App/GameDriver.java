@@ -1,7 +1,8 @@
 package edu.nyu.pqs.ConnectFour.App;
 
 /**
- * Main function 
+ * Main function
+ * 
  * @author himaja
  *
  */

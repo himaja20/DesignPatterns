@@ -8,11 +8,12 @@ import java.util.List;
 import edu.nyu.pqs.ConnectFour.Model.GameBoard.CoinType;
 
 /**
- * AIPlayer is a type of player. This class implements 
- * the interface Player.
+ * AIPlayer is a type of player. This class 
+ * implements the interface Player.
  * 
- * AIPlayer is a class which defines a computer
- * (Artificial Intelligence) player.
+ * AIPlayer is a class which defines a 
+ * computer (Artificial Intelligence) player.
+ * 
  * @author himaja
  */
 public class AIPlayer implements Player {
@@ -25,6 +26,7 @@ public class AIPlayer implements Player {
   /**
    * Builder pattern to build the player object 
    * with its attributes.
+   * 
    * @author himaja
    *
    */
@@ -35,6 +37,7 @@ public class AIPlayer implements Player {
 
     /**
      * to set the name using builder object
+     * 
      * @param playerName
      * @return
      */
@@ -45,6 +48,7 @@ public class AIPlayer implements Player {
 
     /**
      * To set the coin using the builder object
+     * 
      * @param coin
      * @return
      */
@@ -54,7 +58,8 @@ public class AIPlayer implements Player {
     }
 
     /**
-     * to set the color using the builder object 
+     * to set the color using the builder object
+     * 
      * @param color
      * @return
      */
@@ -65,6 +70,7 @@ public class AIPlayer implements Player {
 
     /**
      * build object which returns the AIPlayer object
+     * 
      * @return
      */
     public AIPlayer build() {
@@ -80,12 +86,12 @@ public class AIPlayer implements Player {
   }
 
   /**
-   * This function makes a choice for the AI player
-   * to select a position on the board to play the 
-   * computer turn.
+   * This function makes a choice for the AI player 
+   * to select a position on the board to play the computer turn.
    * 
-   * This function checks the following -
-   * 1. It checks to stop the opponent from winning
+   * This function checks the following - 
+   * 1. It checks to stop the opponent from
+   * winning 
    * 2. It checks to make a winning move for computer win
    */
   @Override
@@ -99,10 +105,12 @@ public class AIPlayer implements Player {
       if (rowSlot >= 0) {
         validColumns.add(j);
         if (slots[rowSlot][j] == CoinType.EMPTY) {
-          if (gameBoard.isWinningMove(rowSlot, j, CoinType.P1)) {
+          if (gameBoard.isWinningMove(
+              rowSlot, j, CoinType.P1)) {
             return j;
           }
-          if (gameBoard.isWinningMove(rowSlot, j, this.getCoin())) {
+          if (gameBoard.isWinningMove(
+              rowSlot, j, this.getCoin())) {
             return j;
           }
         }
@@ -113,7 +121,7 @@ public class AIPlayer implements Player {
   }
 
   /**
-   * Returns the CoinType of this player.
+   * Returns the CoinType of this player. 
    * Returns Player1/Player2.
    */
   @Override
@@ -152,12 +160,14 @@ public class AIPlayer implements Player {
   public int hashCode() {
     final int prime = 31;
     int result = 1;
-    result = prime * result + ((coin == null) ? 0 : coin.hashCode());
-    result = prime * result + ((color == null) ? 0 : color.hashCode());
-    result = prime * result + ((playerName == null) ? 0 : playerName.hashCode());
+    result = prime * result + ((coin == null) ?
+        0 : coin.hashCode());
+    result = prime * result + ((color == null) ?
+        0 : color.hashCode());
+    result = prime * result + ((playerName == null) ?
+        0 : playerName.hashCode());
     return result;
   }
-
 
   /**
    * Equals implementation
@@ -191,7 +201,8 @@ public class AIPlayer implements Player {
    */
   @Override
   public String toString() {
-    return "AIPlayer1 [playerName=" + playerName + ", coin=" + coin + ", color=" + color + "]";
+    return "AIPlayer1 [playerName=" + playerName +
+        ", coin=" + coin + ", color=" + color + "]";
   }
 
 }

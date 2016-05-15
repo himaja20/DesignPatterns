@@ -5,11 +5,12 @@ import java.awt.Color;
 import edu.nyu.pqs.ConnectFour.Model.GameBoard.CoinType;
 
 /**
- * Human Player is a type of Player which implements 
- * the Player Interface.
+ * Human Player is a type of Player which 
+ * implements the Player Interface.
  * 
- * Human Player defines the attributes and behaviour 
- * of a Human Player.
+ * Human Player defines the attributes 
+ * and behaviour of a Human Player.
+ * 
  * @author himaja
  */
 public class HumanPlayer implements Player {
@@ -21,6 +22,7 @@ public class HumanPlayer implements Player {
 
   /**
    * Builder class to build human player objects
+   * 
    * @author himaja
    *
    */
@@ -31,6 +33,7 @@ public class HumanPlayer implements Player {
 
     /**
      * to set the player name of the builder object
+     * 
      * @param playerName
      * @return HumanPlayerBuilder
      */
@@ -41,6 +44,7 @@ public class HumanPlayer implements Player {
 
     /**
      * To set the coin of the builder object
+     * 
      * @param coin
      * @return HumanPlayerBuilder
      */
@@ -51,6 +55,7 @@ public class HumanPlayer implements Player {
 
     /**
      * To set the color of the Builder object
+     * 
      * @param color
      * @return HumanPlayerBuilder
      */
@@ -60,7 +65,9 @@ public class HumanPlayer implements Player {
     }
 
     /**
-     * Build the HumanPlayer object using the Builder object so far created.
+     * Build the HumanPlayer object using the 
+     * Builder object so far created.
+     * 
      * @return HumanPlayer
      */
     public HumanPlayer build() {
@@ -109,8 +116,9 @@ public class HumanPlayer implements Player {
 
   /**
    * next move Function for a Human player
-   * @return -1 as this function does nothing and control
-   * comes from the view/UI.
+   * 
+   * @return -1 as this function does nothing 
+   * and control comes from the view/UI.
    */
   @Override
   public int makeNextMove(GameBoard gameBoard) {
@@ -126,9 +134,12 @@ public class HumanPlayer implements Player {
   public int hashCode() {
     final int prime = 31;
     int result = 1;
-    result = prime * result + ((coin == null) ? 0 : coin.hashCode());
-    result = prime * result + ((color == null) ? 0 : color.hashCode());
-    result = prime * result + ((playerName == null) ? 0 : playerName.hashCode());
+    result = prime * result + ((coin == null)
+        ? 0 : coin.hashCode());
+    result = prime * result + ((color == null)
+        ? 0 : color.hashCode());
+    result = prime * result + ((playerName == null)
+        ? 0 : playerName.hashCode());
     return result;
   }
 
@@ -168,6 +179,7 @@ public class HumanPlayer implements Player {
    */
   @Override
   public String toString() {
-    return "HumanPlayer [playerName=" + playerName + ", coin=" + coin + ", color=" + color + "]";
+    return "HumanPlayer [playerName=" + playerName
+        + ", coin=" + coin + ", color=" + color + "]";
   }
 }

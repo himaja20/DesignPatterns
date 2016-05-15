@@ -6,14 +6,13 @@ import java.util.List;
 import edu.nyu.pqs.ConnectFour.Model.GameBoard.CoinType;
 
 /**
- * Model class maintains the back end data structure 
- * for the board. The views communicate with the model 
- * through the listener interface. Model class
- * maintains the state of the two dimensional game board.
+ * Model class maintains the back end data structure for the board. 
+ * The views communicate with the model through the listener interface.
+ * Model class maintains the state of the two dimensional game board.
  * 
- * Whenever a move is made in the view, the view tells 
- * the model which column it wants to drop the coin. 
- * The model, then performs the following checks -
+ * Whenever a move is made in the view, the view tells the model 
+ * which column it wants to drop the coin. The model, then performs 
+ * the following checks -
  * 
  * 1. Check with game board if the column selected by a view is valid 
  * 2. If it is valid 
@@ -22,7 +21,7 @@ import edu.nyu.pqs.ConnectFour.Model.GameBoard.CoinType;
  *  b. It sets the coin into that free slot. 
  *  c. It checks if this move leads to a game win/draw 
  *  d. If yes, ends the game communicating the same to all views. 
- *  e. If No, toggles the player to continue to the game. 
+ *  e. If No, toggles the player to continue the game. 
  * 3. If the selection is invalid, it tells the view to make
  * another selection.
  * 
@@ -41,6 +40,7 @@ public class Model {
 
   /**
    * Constructor
+   * 
    * @param rows
    * @param cols
    */
@@ -114,13 +114,13 @@ public class Model {
   }
 
   /**
-   * This method is more useful in the Human-AI game.
-   * This function is called by the model to prompt the user
+   * This method is more useful in the Human-AI game. 
+   * This function is called by the model to prompt the user 
    * to make its move, after toggling the user.
    * 
-   * This in turn calls the makeNextMove(GameBoard board) method
-   * on the current Player and passes the column selection to 
-   * the model via the moveMade(column)
+   * This in turn calls the makeNextMove(GameBoard board) 
+   * method on the current Player and passes the column selection 
+   * to the model via the moveMade(column)
    */
   public void makeMove() {
     int move = currentPlayer.makeNextMove(board);
@@ -131,6 +131,7 @@ public class Model {
 
   /**
    * Adds a listener to the list of Listeners
+   * 
    * @param listener
    */
   public void addListener(Listener listener) {
@@ -139,14 +140,16 @@ public class Model {
 
   /**
    * Removes a listener from a list of Listeners
+   * 
    * @param listener
    */
   public void removeListener(Listener listener) {
     listeners.remove(listener);
   }
-  
+
   /**
    * Begins the game by registering the players with the model
+   * 
    * @param player1
    * @param player2
    */
@@ -162,14 +165,15 @@ public class Model {
   /**
    * This function checks the following with the game board-
    * 
-   * 1. if a selection is valid
-   * 2. if yes, updates the board with move
-   * 3. Notifies the views to show the move in the UI
-   * 4. Checks if this move is a winning move
-   * 5. If yes, notifies the views to end the game in Win
-   * 6. Checks if this move is leads to a draw
-   * 7. If yes, notifies the views to end the game in draw
+   * 1. if a selection is valid 
+   * 2. if yes, updates the board with move 
+   * 3. Notifies the views to show the move in the UI 
+   * 4. Checks if this move is a winning move 
+   * 5. If yes, notifies the views to end the game in Win 
+   * 6. Checks if this move is leads to a draw 
+   * 7. If yes, notifies the views to end the game in draw 
    * 8. Otherwise, toggles the players to continue the game
+   * 
    * @param column
    */
   public void moveMade(int column) {
@@ -179,7 +183,6 @@ public class Model {
     }
     int rowSlot = board.getFreeSlotAndSetCoin(column, currentPlayer.getCoin());
     fireMoveMadeNotification(rowSlot, column, currentPlayer);
-    System.out.println("performTurnOnTestBoard(" + column + ", CoinType." + currentPlayer.getCoin() + ");");
     if (board.isWinningMove(rowSlot, column, currentPlayer.getCoin())) {
       fireGameWonNotification(currentPlayer);
     } else if (board.isFull()) {
@@ -190,8 +193,7 @@ public class Model {
   }
 
   /**
-   * Toggles the player and sets the current player to the 
-   * active player.
+   * Toggles the player and sets the current player to the active player.
    */
   void changePlayerTurn() {
     if (currentPlayer.getCoin() == CoinType.P1) {
