@@ -10,6 +10,12 @@ import org.junit.Test;
 
 import edu.nyu.pqs.ConnectFour.Model.GameBoard.CoinType;
 
+/**
+ * Tests for Model class.
+ *
+ * @author himaja
+ *
+ */
 public class ModelTests {
 
   private Player player1;
@@ -80,7 +86,8 @@ public class ModelTests {
     model.beginGame(player1, player2);
     setTestCase(5,0,CoinType.P1);
     performTurnOnTestBoard(0);
-    assertTrue(model.getCurrentPlayer().getCoin().equals(player2.getCoin()));
+    assertTrue(model.getCurrentPlayer()
+        .getCoin().equals(player2.getCoin()));
   }
 
   @Test
@@ -95,7 +102,8 @@ public class ModelTests {
 
   @Test
   public void checkIntialStateOfGameBoard(){
-    assertTrue(compareBoards(testBoard.getCoinSlots(),expectedBoard));
+    assertTrue(compareBoards(testBoard.
+        getCoinSlots(),expectedBoard));
   }
 
 }

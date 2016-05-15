@@ -9,6 +9,12 @@ import org.junit.Test;
 
 import edu.nyu.pqs.ConnectFour.Model.GameBoard.CoinType;
 
+/**
+ * Tests for Player classes
+ * Includes tests for both AI and Human Players
+ * @author himaja
+ *
+ */
 public class PlayerTests {
   private Player player1;
   private Player player2;

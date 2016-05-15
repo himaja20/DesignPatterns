@@ -1,6 +1,7 @@
 package edu.nyu.pqs.CanvasModel;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 import java.awt.Color;
 
@@ -14,7 +15,7 @@ public class ModelTests {
   public void setUp() throws Exception {
     model = new Model();
   }
-
+  
   @Test
   public void increaseThicknessTest(){
     int thickness = model.getThickness();
@@ -33,7 +34,7 @@ public class ModelTests {
   @Test
   public void ColorButtonClickedTest(){
     Color expected = Color.BLUE;
-    model.ButtonClicked(Color.BLUE);
+    model.colorButtonClicked(Color.BLUE);
     assertEquals(expected,model.getColor());
   }
   

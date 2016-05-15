@@ -1,5 +1,100 @@
-"Himaja","Rachakonda","",,"Ms","","","6464417586","7337469505","","himaja.auce@gmail.com","hr970@nyu.edu","","Mantri Celestia, Gatchibowli, Hyderabad","New York university","","My first contact"
-"Himu","Rachakonda","","","Ms","","","123","89437458","","gmail@com","hrnyu@edu","","New York, USA","New York university","","My first contact"
-"Srujana","konda","","","Ms","","","12345","9440","","himaja.auce@gmail.com","hr970@nyu.edu","","Mantri Celestia, Gatchibowli, Hyderabad","New York university","","My first contact"
-"","","","","","","","","","","","","","","","","Test"
-"firstName","lastName","middleName","nickname","namePrefix","nameSuffix","","","","","","","","","","",""
+<!doctype html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="utf-8" />
+<title>cleopatra - wikipedia, the free encyclopedia</title>
+<script>document.documentelement.classname = document.documentelement.classname.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.rlq = window.rlq || []).push(function () {
+mw.config.set({"wgcanonicalnamespace":"","wgcanonicalspecialpagename":false,"wgnamespacenumber":0,"wgpagename":"cleopatra","wgtitle":"cleopatra","wgcurrevisionid":710219842,"wgrevisionid":710219842,"wgarticleid":60827,"wgisarticle":true,"wgisredirect":false,"wgaction":"view","wgusername":null,"wgusergroups":["*"],"wgcategories":["all articles with specifically marked weasel-worded phrases","articles with specifically marked weasel-worded phrases from november 2012","wikipedia pages semi-protected against vandalism","articles which use infobox templates with no data rows","articles containing ancient greek-language text","wikipedia articles with viaf identifiers","wikipedia articles with lccn identifiers","wikipedia articles with isni identifiers","wikipedia articles with gnd identifiers","wikipedia articles with selibr identifiers","wikipedia articles with bnf identifiers","wikipedia articles with nla identifiers","cleopatra","69 bc births","30 bc deaths","1st-century bc african rulers","1st-century bc female rulers","ancient egyptian queens consort","egyptian people of greek descent","deaths due to snake bites","egyptian queens regnant","female shakespearean characters","pharaohs of the ptolemaic dynasty","royal suicides in the classical world","female suicides","female pharaohs","julius caesar","1st century bc in egypt"],"wgbreakframes":false,"wgpagecontentlanguage":"en","wgpagecontentmodel":"wikitext","wgseparatortransformtable":["",""],"wgdigittransformtable":["",""],"wgdefaultdateformat":"dmy","wgmonthnames":["","january","february","march","april","may","june","july","august","september","october","november","december"],"wgmonthnamesshort":["","jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"],"wgrelevantpagename":"cleopatra","wgrelevantarticleid":60827,"wgisprobablyeditable":false,"wgrestrictionedit":["autoconfirmed"],"wgrestrictionmove":["sysop"],"wgwikieditorenabledmodules":{"toolbar":true,"dialogs":true,"preview":false,"publish":false},"wgbetafeaturesfeatures":[],"wgmediavieweronclick":true,"wgmediaviewerenabledbydefault":true,"wgvisualeditor":{"pagelanguagecode":"en","pagelanguagedir":"ltr","usepageimages":true,"usepagedescriptions":true},"wikilove-recipient":"","wikilove-anon":0,"wgpreferredvariant":"en","wgrelatedarticles":null,"wgrelatedarticlesusecirrussearch":true,"wgrelatedarticlesonlyusecirrussearch":false,"wgulsacceptlanguagelist":["fr","fr-fr","en-us","en"],"wgulscurrentautonym":"english","wgflaggedrevsparams":{"tags":{"status":{"levels":1,"quality":2,"pristine":3}}},"wgstablerevisionid":null,"wgcategorytreepagecategoryoptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgnoticeproject":"wikipedia","wgcentralnoticecategoriesusinglegacy":["fundraising","fundraising"],"wgcentralauthmobiledomain":false,"wgwikibaseitemid":"q635","wgvisualeditortoolbarscrolloffset":0}); /* @nomin */mw.loader.implement("user.options",function($,jquery){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function ( $, jquery ) {
+mw.user.tokens.set({"edittoken":"+\\","patroltoken":"+\\","watchtoken":"+\\","csrftoken":"+\\"}); /* @nomin */ ;
+
+});mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","ext.centralauth.centralautologin","mmv.head","ext.visualeditor.desktoparticletarget.init","ext.uls.init","ext.uls.interface","ext.quicksurveys.init","mw.mediawikiplayer.loader","mw.popupmediatransform","ext.centralnotice.bannercontroller","skins.vector.js"]);
+} );</script>
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=ext.cite.styles%7cext.gadget.drn-wizard%2creferencetooltips%2ccharinsert%2cfeatured-articles-links%2creftoolbar%2cswitcher%2cteahouse%7cext.tmh.thumbnail.styles%7cext.uls.nojs%7cext.visualeditor.desktoparticletarget.noscript%7cext.wikihiero%2cwikimediabadges%7cmediawiki.legacy.commonprint%2cshared%7cmediawiki.raggett%2csectionanchor%7cmediawiki.skinning.interface%7cskins.vector.styles%7cwikibase.client.init&amp;only=styles&amp;skin=vector" />
+<meta name="resourceloaderdynamicstyles" content="" />
+<link rel="stylesheet" href="/w/load.php?debug=false&amp;lang=en&amp;modules=site&amp;only=styles&amp;skin=vector" />
+<script async="" src="/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector"></script>
+<meta name="generator" content="mediawiki 1.27.0-wmf.16" />
+<meta name="referrer" content="origin-when-cross-origin" />
+<link rel="alternate" href="android-app://org.wikipedia/http/en.m.wikipedia.org/wiki/cleopatra" />
+<link rel="apple-touch-icon" href="/static/apple-touch/wikipedia.png" />
+<link rel="shortcut icon" href="/static/favicon/wikipedia.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="wikipedia (en)" />
+<link rel="edituri" type="application/rsd+xml" href="//en.wikipedia.org/w/api.php?action=rsd" />
+<link rel="copyright" href="//creativecommons.org/licenses/by-sa/3.0/" />
+<link rel="canonical" href="https://en.wikipedia.org/wiki/cleopatra" />
+<link rel="dns-prefetch" href="//meta.wikimedia.org" />
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-cleopatra skin-vector action-view">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+
+							<div id="sitenotice"><!-- centralnotice --></div>
+						<div class="mw-indicators">
+<div id="mw-indicator-pp-default" class="mw-indicator"><a href="/wiki/wikipedia:protection_policy#semi" title="this article is semi-protected due to vandalism"><img alt="page semi-protected" src="//upload.wikimedia.org/wikipedia/commons/thumb/f/fc/padlock-silver.svg/20px-padlock-silver.svg.png" width="20" height="20" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/f/fc/padlock-silver.svg/30px-padlock-silver.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/f/fc/padlock-silver.svg/40px-padlock-silver.svg.png 2x" data-file-width="128" data-file-height="128" /></a></div>
+</div>
+			<h1 id="firstheading" class="firstheading" lang="en">cleopatra</h1>
+									<div id="bodycontent" class="mw-body-content">
+									<div id="sitesub">from wikipedia, the free encyclopedia</div>
+								<div id="contentsub"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					jump to:					<a href="#mw-head">navigation</a>, 					<a href="#p-search">search</a>
+				</div>
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div role="note" class="hatnote">for other uses, see <a href="/wiki/cleopatra_(disambiguation)" title="cleopatra (disambiguation)" class="mw-disambig">cleopatra (disambiguation)</a>.</div>
+<table class="infobox vcard" style="width:22em">
+<tr>
+<th colspan="2" class="fn" style="text-align:center;font-size:125%;font-weight:bold;background-color: #cbe; font-size: 125%">cleopatra vii philopator</th>
+</tr>
+<tr>
+<td colspan="2" class="photo" style="text-align:center"><a href="/wiki/file:kleopatra-vii.-altes-museum-berlin1.jpg" class="image"><img alt="kleopatra-vii.-altes-museum-berlin1.jpg" src="//upload.wikimedia.org/wikipedia/commons/thumb/3/3e/kleopatra-vii.-altes-museum-berlin1.jpg/220px-kleopatra-vii.-altes-museum-berlin1.jpg" width="220" height="292" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/3/3e/kleopatra-vii.-altes-museum-berlin1.jpg/330px-kleopatra-vii.-altes-museum-berlin1.jpg 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/3/3e/kleopatra-vii.-altes-museum-berlin1.jpg/440px-kleopatra-vii.-altes-museum-berlin1.jpg 2x" data-file-width="1149" data-file-height="1523" /></a>
+<div>bust believed to be of cleopatra vii, <a href="/wiki/altes_museum" title="altes museum">altes museum</a>, berlin</div>
+</td>
+</tr>
+<tr>
+<th colspan="2" style="text-align:center;background-color: #e4dcf6"><a href="/wiki/ptolemaic_dynasty" title="ptolemaic dynasty" class="mw-redirect">ptolemaic queen</a> of <a href="/wiki/ptolemaic_kingdom" title="ptolemaic kingdom">egypt</a></th>
+</tr>
+<tr>
+<th scope="row">reign</th>
+<td>51 â€“ 12 august 30 bc (21 years)</td>
+</tr>
+<tr>
+<th scope="row">predecessor</th>
+<td><a href="/wiki/ptolemy_xii_auletes" title="ptolemy xii auletes">ptolemy xii auletes</a></td>
+</tr>
+<tr>
+<th scope="row">co-rulers</th>
+<td><a href="/wiki/ptolemy_xii_auletes" title="ptolemy xii auletes">ptolemy xii auletes</a><br />
+<a href="/wiki/ptolemy_xiii_theos_philopator" title="ptolemy xiii theos philopator">ptolemy xiii theos philopator</a><br />
+<a href="/wiki/ptolemy_xiv" title="ptolemy xiv" class="mw-redirect">ptolemy xiv</a><br />
+<a href="/wiki/ptolemy_xv_caesarion" title="ptolemy xv caesarion" class="mw-redirect">ptolemy xv caesarion</a></td>
+</tr>
+<tr>
+<th colspan="2" style="text-align:center;background-color: #e4dcf6">
+<div style="height: 4px; width:100%;"></div>
+</th>
+</tr>
+<tr>
+<th scope="row">born</th>
+<td>69&#160;bc<br />
+<a href="/wiki/alexandria" title="alexandria">alexandria</a>, <a href="/wiki/ptolemaic_kingdom" title="ptolemaic kingdom">egypt</a></td>
+</tr>
+<tr>
+<th scope="row">died</th>
+<td>12 august 30&#160;bc (aged 39)<br />
+alexandria, egypt</td>
+</tr>
+<tr>
+<th scope="row">burial</th>
+<td><span class="label">unknown (probably in egypt)</span></td>
+</tr>
+<tr>
+<th scope="row">spouse</th>
+<td><a href="/wiki/ptolemy_xiii_theos_philopator" title="ptolemy xiii theos philopator">ptolemy xiii theos philopator</a><br />
+<a href="/wiki/ptolemy_xiv" title="ptolemy xiv" class="mw-redirect">ptolemy xiv</a><br />
+<a href="/wiki/mark_antony" title="mark antony">mark antony</a></td>
+</tr>
+<tr>
+<th scope="row">issue</th>
+<td><a href="/wiki/caesarion" ...

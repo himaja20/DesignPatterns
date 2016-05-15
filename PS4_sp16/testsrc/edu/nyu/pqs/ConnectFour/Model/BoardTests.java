@@ -9,6 +9,15 @@ import org.junit.Test;
 
 import edu.nyu.pqs.ConnectFour.Model.GameBoard.CoinType;
 
+/**
+ * This class consists of tests for all the board
+ * related functions.
+ * 
+ * It checks functions like valid move, getting free slot from
+ * the board, checking if a position is a winning move etc
+ * @author himaja
+ *
+ */
 public class BoardTests {
   
   private int rows;
@@ -30,6 +39,12 @@ public class BoardTests {
     }
   }
   
+  /**
+   * compares two boards
+   * @param testBoard
+   * @param expectedBoard
+   * @return
+   */
   private boolean compareBoards(CoinType[][] testBoard,
       CoinType[][] expectedBoard){
     for(int i = 0; i < rows ; i++){
@@ -42,10 +57,21 @@ public class BoardTests {
     return true;
   }
   
+  /**
+   * Performs a turn on the gameBoard object
+   * @param column
+   * @param coinType
+   */
   private void performTurnOnTestBoard(int column, CoinType coinType){
     testBoard.getFreeSlotAndSetCoin(column, coinType);
   }
   
+  /**
+   * Sets the test case by setting a coin in the test 2D-array
+   * @param i
+   * @param j
+   * @param coinType
+   */
   private void setTestCase(int i, int j, CoinType coinType){
     expectedBoard[i][j] = coinType;
   }

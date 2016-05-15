@@ -7,20 +7,17 @@ import edu.nyu.pqs.ConnectFour.Model.Model;
 import edu.nyu.pqs.ConnectFour.Model.Player;
 
 /**
- * GameView Class is the listener which gets notifications
- * from the Model class.There can be multiple listeners 
- * for a game instance.
+ * GameView Class is the listener which gets notifications from the Model
+ * class.There can be multiple listeners for a game instance.
  * 
- * This class implements the Listener interface through 
- * which it communicates to model. It basically is 
- * responsible to show all the movements of the player.
+ * This class implements the Listener interface through which it communicates to
+ * model. It basically is responsible to show all the movements of the player.
  * 
- * When a player makes a move from the UI, view communicates
- * it to the model.Model fires back notifications telling the 
- * view what to show in the GUI.
+ * When a player makes a move from the UI, view communicates it to the
+ * model.Model fires back notifications telling the view what to show in the
+ * GUI.
  * 
- * This class interacts with GameViewBoard class to show the 
- * effects on the GUI.
+ * This class interacts with GameViewBoard class to show the effects on the GUI.
  * 
  * @author himaja
  *
@@ -31,6 +28,7 @@ public class GameView implements Listener {
 
   /**
    * GameView Constructor initiates game Board UIs for players
+   * 
    * @param model
    * @param isActiveBoard
    */
@@ -41,8 +39,8 @@ public class GameView implements Listener {
   }
 
   /**
-   * This function is an implementation of the method in
-   * the Listener Interface. It makes the UI visible to the user.
+   * This function is an implementation of the method in the Listener Interface.
+   * It makes the UI visible to the user.
    */
   @Override
   public void showGameBoard() {
@@ -50,8 +48,8 @@ public class GameView implements Listener {
   }
 
   /**
-   * Implementation of the function in Listener Interface
-   * public void endGameInWin(Player player)
+   * Implementation of the function in Listener Interface public void
+   * endGameInWin(Player player)
    */
   @Override
   public void endGameInWin(Player player) {
@@ -60,8 +58,8 @@ public class GameView implements Listener {
   }
 
   /**
-   * Implementation of the function in Listener Interface
-   * public void endGameInDraw()
+   * Implementation of the function in Listener Interface public void
+   * endGameInDraw()
    */
   @Override
   public void endGameInDraw() {
@@ -70,8 +68,8 @@ public class GameView implements Listener {
   }
 
   /**
-   * Implementation of the function in Listener Interface
-   * public void showMadeMove(int row, int column, Color color)
+   * Implementation of the function in Listener Interface public void
+   * showMadeMove(int row, int column, Color color)
    */
   @Override
   public void showMadeMove(int row, int column, Color color) {
@@ -80,8 +78,8 @@ public class GameView implements Listener {
   }
 
   /**
-   * Implementation of the function in Listener Interface
-   * public void showMadeMove(String message)
+   * Implementation of the function in Listener Interface public void
+   * showMadeMove(String message)
    */
   @Override
   public void showMessage(String message) {

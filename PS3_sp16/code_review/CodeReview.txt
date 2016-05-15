@@ -1,2 +1,22 @@
 Please enter your code review in this file as plain text
 and make sure to include it when you commit your project.
+
+
+1.Synchronized block should contain only the code that will be critical region. All other code like getting the system time should be outside the synchronized block
+2. The list Laps should be a  thread safe data structure. Array List is not a thread safe data structure.
+3. reset method should clear the laps list in either case when the state is stopped or running.
+4. reset method should reset all parameters irrespective of the current state of the stopwatch. 
+5. lock object on the stopwatch should be made final.
+6. The check for the state of the object in the stop() function is not performed in a synchronized block. All shared variables should be accessed in the synchronized block only.
+7. getStopWatch() function should ideally return a IStopWatch object, because if another class implements the interface for a different kind of stopwatch, it will be easier to maintain the code.
+8. toString() method can give better information with respect to the current state, number of laps etc. for better logging/debugging features.
+9. The exception messages can be made static final String variables in the class, so that there will be a single location to change anything in the future.
+10. An ArrayList laps is declared as private ArrayList<Long> laps = new ArrayList<Long>();
+It should be ideally declared as a List<Long> object whose interface is implemented by class ArrayList.
+11. A lap is registered with a stop call in this implementation. A lap should be registered only when a lap() is called on the stopwatch. 
+For Ex: start - stop - start - lap should have 1 lap ideally, but according to this implementation it will have 2 laps.
+12. Time between stop and resume is not accounted in this implementation.For Ex: Start(at time 10) - Stop(at time 15) - Start(at time 90) - Lap(at 100) should ideally have only one lap time of (15 - 10 + 100 - 90) i.e 15. This implementation gives 5 as a first lap and 10 as a second lap
+13. Stopwatch constructor takes s as a variable. A more meaningful name like id will be readable.
+14. A third state RESET should be there. A STOP state is different from a RESET state. Every time start function is called, it has to make a check about these two possible prior states
+
+15. Making the constructor private ensures it cannot be called by the end user - Good.

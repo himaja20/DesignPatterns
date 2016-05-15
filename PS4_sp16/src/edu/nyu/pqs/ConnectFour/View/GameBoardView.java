@@ -20,16 +20,13 @@ import edu.nyu.pqs.ConnectFour.Model.PlayerFactory;
 import edu.nyu.pqs.ConnectFour.Model.PlayerType;
 
 /**
- * GameBoardView maintains all the Java Swing 
- * Code to show the GUI to the user.
- * The functions in this class will be called 
- * by the listeners to show the effects on the GUI.
+ * GameBoardView maintains all the Java Swing Code to show the GUI to the user.
+ * The functions in this class will be called by the listeners to show the
+ * effects on the GUI.
  * 
- * It basically does operations like - 
- * 1. Showing the grid panel of the game 
- * 2.Showing the moves made by the user by setting the 
- * backgrounds of the cells to respective colors 
- * 3. Enabling and Disabling Control buttons etc.
+ * It basically does operations like - 1. Showing the grid panel of the game
+ * 2.Showing the moves made by the user by setting the backgrounds of the cells
+ * to respective colors 3. Enabling and Disabling Control buttons etc.
  * 
  * @author himaja
  *
@@ -48,6 +45,7 @@ public class GameBoardView {
 
   /**
    * Constructor
+   * 
    * @param model
    * @param isActiveBoard
    */
@@ -61,7 +59,7 @@ public class GameBoardView {
   }
 
   /**
-   * Displays the UI for the start menu to select the game type - 
+   * Displays the UI for the start menu to select the game type -
    * playWithComputer/2-player
    * 
    * Loads the game based on the selection made by the user.
@@ -102,11 +100,9 @@ public class GameBoardView {
   }
 
   /**
-   * Creates the Swing UI for the gameBoard. 
-   * It has the following -
-   * 1. A 6x7 grid with empty slots 
-   * 2. Control buttons to drop coins
-   * 3. Information panel to show messages to the user.
+   * Creates the Swing UI for the gameBoard. It has the following - 1. A 6x7
+   * grid with empty slots 2. Control buttons to drop coins 3. Information panel
+   * to show messages to the user.
    */
   public void createGameBoard() {
     JPanel masterPanel = new JPanel(new BorderLayout());
@@ -165,8 +161,8 @@ public class GameBoardView {
   }
 
   /**
-   * Intimates the model of the selection made by the user
-   * in the UI.
+   * Intimates the model of the selection made by the user in the UI.
+   * 
    * @param name
    */
   public void buttonClicked(String name) {
@@ -175,8 +171,8 @@ public class GameBoardView {
   }
 
   /**
-   * Disables the control Buttons on the UI; user will not be
-   * able to make any more selections
+   * Disables the control Buttons on the UI; user will not be able to make any
+   * more selections
    */
   public void disableControlButtons() {
     for (JButton button : buttons) {
@@ -186,6 +182,7 @@ public class GameBoardView {
 
   /**
    * Shows a message in the information panel of the game
+   * 
    * @param message
    */
   public void setInfoLabelMessage(String message) {
@@ -194,6 +191,7 @@ public class GameBoardView {
 
   /**
    * Sets the background of a cell to the specified color
+   * 
    * @param row
    * @param column
    * @param color
@@ -203,8 +201,8 @@ public class GameBoardView {
   }
 
   /**
-   * Toggles the control buttons to be enabled/disabled so that
-   * only one player can play at a time
+   * Toggles the control buttons to be enabled/disabled so that only one player
+   * can play at a time
    */
   public void toggleControlButtons() {
     for (JButton button : buttons) {
