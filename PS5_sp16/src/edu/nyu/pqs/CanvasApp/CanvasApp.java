@@ -10,7 +10,7 @@ public class CanvasApp {
   }
   
   private void startCanvas() {
-    Model model = new Model();
+    Model model = Model.getInstance();
     new CanvasView(model);
     new CanvasView(model);
     new CanvasView(model);

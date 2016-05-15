@@ -17,12 +17,12 @@ public class CanvasView implements Listener{
   public CanvasView(final Model model) {
     this.model = model;
     model.addListener(this);
-    
+
     frame = new JFrame();
     frame.setSize(600, 400);
     canvas = new Canvas();
     frame.getContentPane().add(canvas);
-    
+
     canvas.addMouseMotionListener(new MouseMotionListener() {
 
       @Override
@@ -34,7 +34,7 @@ public class CanvasView implements Listener{
         model.somethingDrawn(e.getX(), e.getY());
       }
     });
-    
+
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.setVisible(true);
   }
@@ -42,7 +42,7 @@ public class CanvasView implements Listener{
   public void paint(int x, int y, int w, int h){
     canvas.getGraphics().fillOval(x, y, w, h);
   }
-  
+
   @Override
   public void startCanvas() {
   }

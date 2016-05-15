@@ -5,5 +5,5 @@ public interface Listener {
   
   public void startCanvas();
 
-  public void paint(int x, int y, int w, int h);
+  public void paint(int x, int y, int width, int height);
 }
